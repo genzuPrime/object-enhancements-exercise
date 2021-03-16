@@ -9,7 +9,9 @@
 
 // ES2015 VERSION
 
-function createInstructor() {}
+function createInstructor(firstName, lastName) {
+     return { firstName, lastName };
+}
 
 // COMPUTED PROPERTY NAMES
 
@@ -23,7 +25,12 @@ function createInstructor() {}
 
 // ES2105 VERSION
 
-function favoriteNumber() {}
+const favoriteNumber = 42;
+
+const instructor = {
+     firstName: 'Colt',
+     [favoriteNumber]: 'That is my favorite!',
+};
 
 // Object Methods
 
@@ -39,7 +46,15 @@ function favoriteNumber() {}
 
 // ES2015 VERSION
 
-function instructorSays() {}
+const newInstructor = {
+     firstName: 'Colt',
+     sayHi() {
+          return 'HI!';
+     },
+     sayBye() {
+          return this.firstName + ' says bye!';
+     },
+};
 
 // createAnimal function
 
@@ -50,10 +65,19 @@ function instructorSays() {}
 // noise: a string to be printed when above function is called (‘woof’, ‘baaa’)
 // Use one or more of the object enhancements we’ve covered.
 
-// const d = createAnimal("dog", "bark", "Woooof!")
+// const d = createAnimal('dog', 'bark', 'Woooof!');
 // // {species: "dog", bark: ƒ}
 // d.bark()  //"Woooof!"
 
-// const s = createAnimal("sheep", "bleet", "BAAAAaaaa")
+// const s = createAnimal('sheep', 'bleet', 'BAAAAaaaa');
 // // {species: "sheep", bleet: ƒ}
 // s.bleet() //"BAAAAaaaa"
+
+function createAnimal(species, verb, noise) {
+     return {
+          species,
+          [verb]() {
+               return noise;
+          },
+     };
+}
